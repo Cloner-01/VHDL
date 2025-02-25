@@ -159,8 +159,8 @@ end component;
           muxout:out bit_vector(7 downto 0));
 end component;
 
-for all:cloner1 use entity work.adder8bit (first);
-for all:cloner2 use entity work.max4x18bit (first);
+for all: cloner1 use entity work.adder8bit (first);
+for all: cloner2 use entity work.max4x18bit (first);
   signal x,Bnot:bit_vector(7 downto 0);
   signal zero8:bit_ vector(7 downto 0) : ="00000000";
   signal one8:bit_vector(7 downto 0 ) : ="11111111";
