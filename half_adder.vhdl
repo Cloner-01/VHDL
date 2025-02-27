@@ -97,7 +97,7 @@ entity adder8bit is
 end adder8bit;
 
 architecture first of adder8bit is
-  component of cloner
+  component cloner
     port (A,B,Cin :in bit;Sum,carry_out:out bit)
 end component;
 for all : cloner use entity work.full_adder(first);
