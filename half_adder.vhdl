@@ -17,7 +17,7 @@ end madar;
 entity full_adder is
   port(a,b,cin:in bit;s,cout:out bit)
 
-end full_adder
+end full_adder;
 
   architecture madar of full_adder is
 begin
