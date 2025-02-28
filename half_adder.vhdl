@@ -73,8 +73,7 @@ end adder8bit;
 architecture first of adder8bit is
   component cloner
     port(A,B,Cin:in bit;Sum,carry_out:out bit)
-  end component;
-      
+  end component;    
 for all : cloner use entity work.full_adder(madar);
   signal x7,x6,x5,x4,x3,x2,x2,x1:bit;
 begin
