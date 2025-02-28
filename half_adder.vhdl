@@ -54,7 +54,7 @@ end full_majoul;
 
     end component;
 
-for all : cloner use entity work.HA_rashid (saed)
+for all : cloner use entity work.half_adder(madar);
   signal im1 , im2 , im3 : bit;
   begin
     g0: cloner port map ( A,B,im1,im2);
@@ -74,7 +74,7 @@ architecture first of adder8bit is
   component cloner
     port(A,B,Cin:in bit;Sum,carry_out:out bit)
   end component;
-for all : cloner use entity work.full_adder(first);
+for all : cloner use entity work.full_adder(madar);
   signal x7,x6,x5,x4,x3,x2,x2,x1:bit;
 begin
   g0: cloner port map (a0,b0,Cin,s0,x1);
@@ -100,7 +100,7 @@ architecture first of adder8bit is
   component cloner
     port (A,B,Cin :in bit;Sum,carry_out:out bit)
 end component;
-for all : cloner use entity work.full_adder(first);
+for all : cloner use entity work.full_adder(madar);
   signal X : bit_vector (7 downto 1);
 begin
   g0: cloner port map (a(0),b(0),Cin,s(0),x(1));
@@ -121,11 +121,11 @@ entity mux8_bit is
         muxout:out bit_vectore(7 downto 0));
 end mux8_bit;
 
-architecture Ali of mux8_bit is
+architecture first of mux8_bit is
   component cloner
     port (A,B,C,D,S1,S0:in bit;muxout:out bit);
 end component ;
-  for all : cloner use entity work. mux 4*1(first);
+  for all : cloner use entity work.mux4*1(first);
 begin
   mux7 : cloner port map (A(7),B(7),C(7),D(7),S1,S0,muxout(7));
   mux6 : cloner port map (A(6),B(6),C(6),D(6),S1,S0,muxout(6));
@@ -135,7 +135,7 @@ begin
   mux2 : cloner port map (A(2),B(2),C(2),D(2),S1,S0,muxout(2));
   mux1 : cloner port map (A(1),B(1),C(1),D(1),S1,S0,muxout(1));
   mux0 : cloner port map (A(0),B(0),C(0),D(0),S1,S0,muxout(1));
-end   Ali ;
+end first ;
 
 #AU_8bit
 
@@ -159,8 +159,8 @@ end component;
           muxout:out bit_vector(7 downto 0));
 end component;
 
-for all:cloner1 use entity work.adder8bit (first);
-for all:cloner2 use entity work.max4x18bit (first);
+for all:cloner1 use entity work.adder8bit(first);
+for all:cloner2 use entity work.mux8_bit(first);
   signal x,Bnot:bit_vector(7 downto 0);
   signal zero8:bit_ vector(7 downto 0) : ="00000000";
   signal one8:bit_vector(7 downto 0 ) : ="11111111";
