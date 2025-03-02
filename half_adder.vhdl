@@ -22,7 +22,7 @@ end full_adder;
   architecture madar of full_adder is
 begin
       s <= a xor b xor cin;
-      c <= (a and b) or (a and cin) or (b and cin);
+      cout <= (a and b) or (a and cin) or (b and cin);
 
 end madar;
 
