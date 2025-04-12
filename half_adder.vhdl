@@ -118,7 +118,7 @@ end first;
 entity mux8_bit is
   port (A,B,C,D:in bit_vector(7 downto 0);
         S1,S0:in bit;
-        muxout:out bit_vectore(7 downto 0));
+        muxout:out bit_vector(7 downto 0));
 end mux8_bit;
 
 architecture first of mux8_bit is
