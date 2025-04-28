@@ -171,3 +171,27 @@ begin
   im1 <= (not s1 . s0);
   g1 : cloner1 port map(A,x,im1,F,im2);
 end first;
+
+#mul_2bit
+
+entity mul_2bit is
+  port(
+    a,b: in bit_vector(1 downto 0);
+    p: out bit_vector(3 downto 0)
+  );
+end mul_2bit;
+
+architecture mvm of mul_2bit is
+  component half_adder
+    port(a,b:in bit; s,cout:out bit);
+  end component;
+  
+  signal s0, s1, s2, c0, c1: bit;
+begin
+  p(0) <= a(0) and b(0);
+  s0 <= a(1) and b(0);
+  s1 <= a(0) and b(1);
+  ha1: half_adder port map(a=>s0, b=>s1, s=>p(1), cout=>c0);
+  s2 <= a(1) and b(1);
+  ha2: half_adder port map(a=>s2, b=>c0, s=>p(2), cout=>p(3));
+end mvm;
