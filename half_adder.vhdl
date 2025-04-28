@@ -1,7 +1,7 @@
 #half_adder
 
 entity half_adder is
-  port(a,b:in bit;s,cout:out bit)
+  port(a,b:in bit;s,cout:out bit);
 
 end half_adder;
 
@@ -15,7 +15,7 @@ end madar;
 #full_adder
 
 entity full_adder is
-  port(a,b,cin:in bit;s,cout:out bit)
+  port(a,b,cin:in bit;s,cout:out bit);
 
 end full_adder;
 
@@ -28,12 +28,12 @@ end madar;
 
 #MUX4*1
 
-entity mux 4*1 is
-  port(a,b,c,d,s1,s0:in bit;muxout:out bit)
+entity mux4*1 is
+  port(a,b,c,d,s1,s0:in bit;muxout:out bit);
 
-end mux 4*1;
+end mux4*1;
 
-  architecture First of mux 4*1 is
+  architecture First of mux4*1 is
 begin
     muxout <= (not s1 and not s0 and a) or 
               (not s1 and s0 and b) or  
@@ -44,13 +44,13 @@ end First;
 #full_adder_8bit
 
 entity full_majoul is
-  port (A,B,Cin:in bit;S,Cout:out bit)
+  port (A,B,Cin:in bit;S,Cout:out bit);
 
 end full_majoul;
 
   architecture First of full_majoul is
     component cloner
-      port (a,b:in bit;s,c:out bit)
+      port (a,b:in bit;s,c:out bit);
 
     end component;
 
@@ -72,7 +72,7 @@ end adder8bit;
 
 architecture first of adder8bit is
   component cloner
-    port (A,B,Cin:in bit;S,Cout:out bit)
+    port (A,B,Cin:in bit;S,Cout:out bit);
   end component;    
 for all : cloner use entity work.full_adder(madar);
   signal x7,x6,x5,x4,x3,x2,x2,x1:bit;
@@ -98,7 +98,7 @@ end adder8bit;
 
 architecture first of adder8bit is
   component cloner
-    port (A,B,Cin :in bit;Sum,carry_out:out bit)
+    port (A,B,Cin :in bit;Sum,carry_out:out bit);
 end component;
 for all : cloner use entity work.full_adder(madar);
   signal X : bit_vector (7 downto 1);
