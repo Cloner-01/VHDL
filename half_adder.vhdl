@@ -62,7 +62,7 @@ for all : cloner use entity work.half_adder(madar);
     Cout<= im2 or im3;
 end First;
 
-#8-bit adder
+#adder8bit
 
 entity adder8bit is
   port(a7,a6,a5,a4,a3,a2,a1,a0,
