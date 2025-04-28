@@ -26,14 +26,14 @@ begin
 
 end madar;
 
-#MUX4*1
+#MUX4in1
 
-entity mux4*1 is
+entity mux4in1 is
   port(a,b,c,d,s1,s0:in bit;muxout:out bit);
 
-end mux4*1;
+end mux4in1;
 
-  architecture First of mux4*1 is
+  architecture First of mux4in1 is
 begin
     muxout <= (not s1 and not s0 and a) or 
               (not s1 and s0 and b) or  
@@ -113,7 +113,7 @@ begin
   g7: cloner port map (a(7),b(7),x(7),s(7),Cout);
 end first;
 
-# MUX4*1_8bit
+# MUX4in1_8bit
 
 entity mux8_bit is
   port (A,B,C,D:in bit_vector(7 downto 0);
@@ -125,7 +125,7 @@ architecture first of mux8_bit is
   component cloner
     port (A,B,C,D,S1,S0:in bit;muxout:out bit);
 end component ;
-  for all : cloner use entity work.mux4*1(first);
+  for all : cloner use entity work.mux4in1(first);
 begin
   mux7 : cloner port map (A(7),B(7),C(7),D(7),S1,S0,muxout(7));
   mux6 : cloner port map (A(6),B(6),C(6),D(6),S1,S0,muxout(6));
